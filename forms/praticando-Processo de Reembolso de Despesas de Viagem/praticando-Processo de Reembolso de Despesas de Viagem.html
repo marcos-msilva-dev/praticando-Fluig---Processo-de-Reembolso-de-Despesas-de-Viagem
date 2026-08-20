@@ -24,14 +24,25 @@
 				</div>
 				<div class="form-group col-md-3">
 					<label for="dataSolicitacao">Data de Solicitação:</label>
-					<input type="date" class="form-control" id="dataSolicitacao" name="dataSolicitacao">
+					<input type="text" class="form-control" id="dataSolicitacao" name="dataSolicitacao">
 				</div>
 				<div class="form-group col-md-3">
 					<label for="departamento">Departamento:</label>
 					<input type="text" class="form-control" id="departamento" name="departamento" placeholder="Digite seu departamento">
 				</div>
 			</div>
+			<div class="row">
+				<!-- Inputs para: Motivo da Viagem, Centro de Custo, e um campo Zoom consumindo
+				o Dataset nativo de usuários (colleague) para selecionar o Gestor Aprovador. -->
+				<div class="form-group">
+					<label for="motivoViagem">Movito da viagem</label>
+					<input type="textarea" class="form-control" id="motivoViagem" nome="motivoViagem" placeholder="Digite o motivo da viagem">
+				</div>
+			</div>
 		</form>
 	</div>
 </body>
+<script type="text/javascript">
+	var dataSolicitacao = FLUIGC.calendar('#dataSolicitacao');
+</script>
 </html>
