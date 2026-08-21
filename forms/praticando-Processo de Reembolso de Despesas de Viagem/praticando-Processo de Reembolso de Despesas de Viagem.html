@@ -9,34 +9,74 @@
 <body>
 	<div class="fluig-style-guide">
 		<form name="form" role="form">
-			<h1>Processo de Reembolso de Despesas de Viagem</h1>
-			<br>
-			<div class="row">
-				<!-- Painel (panel-default) com o título do processo e dados do solicitante 
-				(nome, e-mail, data de solicitação e departamento). -->
-				<div class="form-group col-md-3">
-					<label for="nome">Nome:</label>
-					<input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome">
+			<div class="page-header">
+				<h1>Processo de Reembolso de Despesas de Viagem</h1>
+			</div>
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title" style="display: flex; align-items: center; gap: 8px;"><i class="flaticon flaticon-person icon-xl" aria-hidden="true"></i><span>Informações do solicitante</span></h3>
 				</div>
-				<div class="form-group col-md-3">
-					<label for="email">E-mail:</label>
-					<input type="email" class="form-control" id="email" name="email" placeholder="Digite seu e-mail">
-				</div>
-				<div class="form-group col-md-3">
-					<label for="dataSolicitacao">Data de Solicitação:</label>
-					<input type="text" class="form-control" id="dataSolicitacao" name="dataSolicitacao">
-				</div>
-				<div class="form-group col-md-3">
-					<label for="departamento">Departamento:</label>
-					<input type="text" class="form-control" id="departamento" name="departamento" placeholder="Digite seu departamento">
+				<div class="panel-body">
+					<div class="row">
+						<!-- Painel (panel-default) com o título do processo e dados do solicitante 
+						(nome, e-mail, data de solicitação e departamento). -->
+						<div class="form-group col-md-3">
+							<label for="nome">Nome:</label>
+							<input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome">
+						</div>
+						<div class="form-group col-md-3">
+							<label for="email">E-mail:</label>
+							<input type="email" class="form-control" id="email" name="email" placeholder="Digite seu e-mail">
+						</div>
+						<div class="form-group col-md-3">
+							<label for="dataSolicitacao">Data de Solicitação:</label>
+							<input type="text" class="form-control" id="dataSolicitacao" name="dataSolicitacao">
+						</div>
+						<div class="form-group col-md-3">
+							<label for="departamento">Departamento:</label>
+							<input type="text" class="form-control" id="departamento" name="departamento" placeholder="Digite seu departamento">
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="row">
-				<!-- Inputs para: Motivo da Viagem, Centro de Custo, e um campo Zoom consumindo
-				o Dataset nativo de usuários (colleague) para selecionar o Gestor Aprovador. -->
-				<div class="form-group">
-					<label for="motivoViagem">Movito da viagem</label>
-					<input type="textarea" class="form-control" id="motivoViagem" nome="motivoViagem" placeholder="Digite o motivo da viagem">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title" style="display: flex; align-items: center; gap: 8px;"><i class="flaticon flaticon-flight icon-xl" aria-hidden="true"></i><span>Dados da Viagem</span></h3>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<!-- Inputs para: Motivo da Viagem, Centro de Custo, e um campo Zoom consumindo
+						o Dataset nativo de usuários (colleague) para selecionar o Gestor Aprovador. -->
+						<div class="form-group">
+							<label for="motivoViagem">Motivo da viagem</label>
+							<textarea rows='5' class="form-control col-md-12" id="motivoViagem" name="motivoViagem" placeholder="Digite o motivo da viagem"></textarea>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="usuarioAprovador">Gestor aprovador</label>
+								<input type="zoom" class="form-control" id="usuarioAprovador" name="usuarioAprovador" data-zoom="{
+									'datasetId':'colleague',
+									'displayKey':'colleagueName',
+									'maximumSelectionLength':'1',
+									'placeholder':'Selecione um gestor aprovador',
+									'fields':[
+										{
+											'field':'colleagueName',
+											'label':'Nome',
+											'standard':'true'
+										},
+										{
+											'field':'colleagueId',
+											'label':'Id',
+											'visible': 'false'
+										}
+									]
+								}">
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</form>
