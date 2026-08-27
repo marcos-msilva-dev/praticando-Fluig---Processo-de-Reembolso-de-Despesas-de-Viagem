@@ -23,3 +23,17 @@ function adicionarDespesa() {
         maxDate: new Date() // Regra de negócio: impede a seleção de datas futuras
     });
 }
+
+// função de somar todas as despesas e atualizar o campo de total
+function atualizarTotalDespesas() {
+    var total = 0;
+    $('input[name^="valorDespesa___"]').each(function() {
+        var valor = $(this).val();
+        if (valor) {
+            total += parseFloat(valor.replace(',', '.')); // Converte para float, considerando vírgula como separador decimal
+        }
+    });
+
+    // Atualiza o campo de total de despesas
+    $('#valorTotal').val(total.toFixed(2).replace('.', ',')); // Formata para duas casas decimais e substitui ponto por vírgula
+}
