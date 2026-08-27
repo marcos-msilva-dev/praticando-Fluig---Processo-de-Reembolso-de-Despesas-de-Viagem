@@ -5,6 +5,7 @@
 	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
 	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	
 </head>
 <body>
 	<div class="fluig-style-guide">
@@ -79,8 +80,62 @@
 					</div>
 				</div>
 			</div>
+
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title" style="display: flex; align-items: center; gap: 8px;"><i class="flaticon flaticon-monetization-on icon-thumbnail-xs" aria-hidden="true"></i><span>Tabela de Despesas</span></h3>
+				</div>
+				<div class="panel-body">
+					<!-- Tabela de Despesas	Uma tabela Pai e Filho (tablename="despesasTable")
+					contendo:
+					• Tipo de Despesa (Select: Alimentação, Hospedagem, Transporte, Outros)
+					• Data da Despesa (Input com calendário Fluig Style Guide FLG-datepicker)
+					• Valor da Despesa (Input formatado com máscara de moeda)• Comprovante (Input file ou campo texto para anexo) -->
+					<table id="despesasTable" tablename="despesasTable" class="table table-hover" noaddbutton="true" nodeletebutton="true">
+						<thead>
+							<tr>
+								<th>Tipo de despesa</th>
+								<th>Data da despesa</th>
+								<th>Valor da despesa</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<select class="form-control" name="tipoDespesa">
+										<option value="Alimentação">Alimentação</option>
+										<option value="Hospedagem">Hospedagem</option>
+										<option value="Transporte">Transporte</option>
+										<option value="Outros">Outros</option>
+									</select>
+								</td>
+								<td>
+									<div class="input-group">
+										<input type="text" name="txtDataDespesa" class="form-control campo-data">
+										<span class="input-group-addon">
+											<span class="fluigicon fluigicon-calendar"></span>
+										</span>
+									</div>
+								</td>
+								<td>
+									<div class="form-group">
+										<input type="number" class="form-control" name="valorDespesa" placeholder="R$ 0,00">										
+									</div>
+								</td>
+								<td>
+									<button type="button" style="height: 32px; display: flex; align-items: center; justify-items: center;" class="btn btn-danger" onclick="fnWdkRemoveChild(this)">
+										<i class="flaticon flaticon-trash icon-sm" aria-hidden="true"></i>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<button type="button" class="btn btn-primary" id="addDespesa" onclick="adicionarDespesa()">Adicionar Despesa</button>
+				</div>
+			</div>
 		</form>
 	</div>
+	<script src="custom.js"></script>
 </body>
 <script type="text/javascript">
 	var dataSolicitacao = FLUIGC.calendar('#dataSolicitacao');
